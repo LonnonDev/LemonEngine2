@@ -29,7 +29,7 @@ impl Add for Vector2 {
     type Output = Self;
 
     fn add(self, other: Self) -> Self {
-        Self {
+        return Self {
             x: self.x + other.x,
             y: self.y + other.y
         }
@@ -38,10 +38,8 @@ impl Add for Vector2 {
 
 impl AddAssign for Vector2 {
     fn add_assign(&mut self, other: Self) {
-        *self = Self {
-            x: self.x + other.x,
-            y: self.y + other.y,
-        };
+        self.x = self.x + other.x;
+        self.y = self.y + other.y;
     }
 }
 
@@ -49,7 +47,7 @@ impl Sub for Vector2 {
     type Output = Self;
 
     fn sub(self, other: Self) -> Self {
-        Self {
+        return Self {
             x: self.x - other.x,
             y: self.y - other.y
         }
@@ -60,7 +58,7 @@ impl Div for Vector2 {
     type Output = Self;
 
     fn div(self, other: Self) -> Self {
-        Self {
+        return Self {
             x: self.x / other.x,
             y: self.y / other.y
         }
@@ -71,7 +69,7 @@ impl Mul for Vector2 {
     type Output = Self;
 
     fn mul(self, other: Self) -> Self {
-        Self {
+        return Self {
             x: self.x * other.x,
             y: self.y * other.y
         }
