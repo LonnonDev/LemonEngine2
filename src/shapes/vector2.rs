@@ -1,10 +1,12 @@
 use std::ops::{Add, AddAssign, Sub, Mul, Div};
 
+// A Vertex struct which is just [f32, f32]
 #[derive(Copy, Clone)]
 pub struct Vertex {
     pub position: [f32; 2],
 }
 
+// A vector struct that can be converted from Vector2 to Vertex
 #[derive(Copy, Clone)]
 pub struct Vector2 {
     pub x: f32,
@@ -12,12 +14,14 @@ pub struct Vector2 {
 }
 
 impl Vector2 {
+    // Creates a new Vectro2 from 2 f32's
     pub fn new(x: f32, y: f32) -> Vector2 {
         return Vector2 {
             x,
             y
         }
     }
+    // Converts the Vector2 to a Vertex
     pub fn to_vertices(&self) -> Vertex {
         return Vertex { 
             position: [self.x, self.y]
