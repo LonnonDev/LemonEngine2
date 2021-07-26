@@ -76,7 +76,6 @@ fn main() {
     let cb = glutin::ContextBuilder::new();
     let display = glium::Display::new(wb, cb, &event_loop).unwrap();
 
-    println!("{:?}", std::env::current_dir());
     let vertex_shader_src = fs::read_to_string("shader.vert")
         .expect("Something went wrong reading the file");
     let fragment_shader_src = fs::read_to_string("shader.frag")
