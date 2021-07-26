@@ -3,7 +3,7 @@ pub mod shapes;
 mod workings;
 mod window;
 
-use std::time;
+use std::{fs, time};
 
 use colors::rgba::RGBA;
 use glium::{Surface, glutin::{self, event_loop::EventLoop}, implement_vertex};
@@ -18,8 +18,8 @@ impl Window {
     fn on_frame(mut self, event_loop: EventLoop<()>) {
         let program = glium::Program::from_source(
             &self.display, 
-            self.vertex_shader_src, 
-            self.fragment_shader_src, 
+            self.vertex_shader_src.as_str(), 
+            self.fragment_shader_src.as_str(), 
             None)
         .unwrap();
         let bg_color = RGBA::new(241.0, 156.0, 187.0, 255.0).normalize();
@@ -76,24 +76,11 @@ fn main() {
     let cb = glutin::ContextBuilder::new();
     let display = glium::Display::new(wb, cb, &event_loop).unwrap();
 
-    let vertex_shader_src = r#"
-        #version 140
-
-        in vec2 position;
-
-        void main() {
-            gl_Position = vec4(position, 0.0, 1.0);
-        }
-    "#;
-    let fragment_shader_src = r#"
-        #version 140
-
-        out vec4 color;
-
-        void main() {
-            color = vec4(1.0, 0.0, 0.0, 1.0);
-        }
-    "#;
+    println!("{:?}", std::env::current_dir());
+    let vertex_shader_src = fs::read_to_string("shader.vert")
+        .expect("Something went wrong reading the file");
+    let fragment_shader_src = fs::read_to_string("shader.frag")
+        .expect("Something went wrong reading the file");
 
     implement_vertex!(Vertex, position);
 
