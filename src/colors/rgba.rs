@@ -1,4 +1,5 @@
-use glium::{Frame, Surface};
+use glium::Surface;
+use glium::Frame;
 
 use crate::colors::rgb::RGB;
 
