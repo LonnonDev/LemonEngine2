@@ -1,3 +1,3 @@
-mod colors;
-mod shapes;
-mod workings;
+pub mod colors;
+pub mod shapes;
+pub mod workings;
