@@ -1,11 +1,8 @@
-pub mod colors;
-pub mod shapes;
-mod workings;
 mod window;
 
 use std::{fs, time};
 
-use colors::rgba::RGBA;
+use lemon_engine::colors::rgba::RGBA;
 use glium::{Surface, glutin::{self, event_loop::EventLoop}, implement_vertex};
 
 use crate::{shapes::{triangle::Triangle, vector2::Vertex}, window::Window};
