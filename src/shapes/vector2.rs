@@ -7,7 +7,7 @@ use glium::implement_vertex;
 pub struct Vertex {
     pub position: [f32; 2],
 }
-implement_vertex!(Vertex, position);
+
 
 /// A vector struct that can be converted from Vector2 to Vertex
 #[derive(Copy, Clone)]
@@ -26,6 +26,7 @@ impl Vector2 {
     }
     /// Converts the Vector2 to a Vertex
     pub fn to_vertices(&self) -> Vertex {
+        implement_vertex!(Vertex, position);
         return Vertex { 
             position: [self.x, self.y]
         }
