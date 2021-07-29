@@ -1,5 +1,7 @@
 use std::ops::{Add, AddAssign, Sub, Mul, Div};
 
+use glium::implement_vertex;
+
 // A Vertex struct which is just [f32, f32]
 #[derive(Copy, Clone)]
 pub struct Vertex {
@@ -26,6 +28,12 @@ impl Vector2 {
         return Vertex { 
             position: [self.x, self.y]
         }
+    }
+}
+
+impl Vertex {
+    pub fn implement() {
+        implement_vertex!(Vertex, position);
     }
 }
 
