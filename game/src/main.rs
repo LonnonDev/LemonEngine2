@@ -67,9 +67,6 @@ impl Window {
 }
 
 fn main() {
-    let empty = Vertex { position: [0f32,0f32] };
-    empty.implement();
-
     let event_loop = glutin::event_loop::EventLoop::new();
     let wb = glutin::window::WindowBuilder::new()
         .with_resizable(false)
