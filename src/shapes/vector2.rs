@@ -32,7 +32,7 @@ impl Vector2 {
 }
 
 impl Vertex {
-    pub fn implement() {
+    pub fn implement(self) {
         implement_vertex!(Vertex, position);
     }
 }
