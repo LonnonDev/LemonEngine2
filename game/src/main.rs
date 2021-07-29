@@ -2,10 +2,12 @@ mod window;
 
 use std::{fs, time};
 
-use lemon_engine::colors::rgba::RGBA;
-use glium::{Surface, glutin::{self, event_loop::EventLoop}, implement_vertex};
+use crate::window::Window;
 
-use crate::{shapes::{triangle::Triangle, vector2::Vertex}, window::Window};
+use lemon_engine::colors::rgba::RGBA;
+use glium::{Surface, glutin::{self, event_loop::EventLoop}};
+
+use lemon_engine::{shapes::{triangle::Triangle}};
 
 #[allow(dead_code)]
 impl Window {
@@ -78,7 +80,7 @@ fn main() {
     let fragment_shader_src = fs::read_to_string("shader.frag")
         .expect("Something went wrong reading the file");
 
-    implement_vertex!(Vertex, position);
+    
 
     let window = Window::new(
         display,

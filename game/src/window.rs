@@ -1,6 +1,6 @@
 use glium::Display;
 
-use crate::workings::renderer::Renderer;
+use lemon_engine::workings::renderer::Renderer;
 
 // A Window struct to create the window
 pub struct Window {
