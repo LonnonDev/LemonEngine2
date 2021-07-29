@@ -8,7 +8,7 @@ pub struct RGB {
 }
 
 impl RGB {
-    // Creates the Struct, from 3 f32's
+    /// Creates the Struct, from 3 f32's
     pub fn new(red: f32, green: f32, blue: f32) -> RGB {
         return RGB {
             red,
@@ -16,7 +16,7 @@ impl RGB {
             blue,
         }
     }
-    // Normalizes the Value from 0-255 to 0-1
+    /// Normalizes the Value from 0-255 to 0-1
     pub fn normalize(&mut self) -> RGB {
         let red = self.red/255f32;
         let blue = self.blue/255f32;
@@ -27,7 +27,7 @@ impl RGB {
             blue,
         }
     }
-    // Unnormalizes the values from 0-1 to 0-255
+    /// Unnormalizes the values from 0-1 to 0-255
     pub fn unnormalize(&mut self) -> RGB {
         let red = self.red*255f32;
         let blue = self.blue*255f32;
@@ -38,7 +38,7 @@ impl RGB {
             blue,
         }
     }
-    // Converts the struct from RGB to RGBA and takes alpha (f32) as a param
+    /// Converts the struct from RGB to RGBA and takes alpha (f32) as a param
     pub fn to_rgba(&self, alpha: f32) -> RGBA {
         return RGBA {
             red: self.red,
