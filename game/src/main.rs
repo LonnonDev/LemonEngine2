@@ -4,7 +4,7 @@ use std::{fs, time};
 
 use crate::window::Window;
 
-use lemon_engine::colors::rgba::RGBA;
+use lemon_engine::{colors::rgba::RGBA, shapes::vector2::Vertex};
 use glium::{Surface, glutin::{self, event_loop::EventLoop}};
 
 use lemon_engine::{shapes::{triangle::Triangle}};
@@ -67,6 +67,9 @@ impl Window {
 }
 
 fn main() {
+    let empty = Vertex { position: [0f32,0f32] };
+    empty.implement();
+
     let event_loop = glutin::event_loop::EventLoop::new();
     let wb = glutin::window::WindowBuilder::new()
         .with_resizable(false)
